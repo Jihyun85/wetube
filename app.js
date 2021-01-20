@@ -11,12 +11,6 @@ import routes from "./routes";
 
 const app = express();
 
-const handleHome = (req, res) => {
-  res.send("Hello from him");
-};
-
-const handleProfile = (req, res) => res.send("You are on my profile");
-
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
