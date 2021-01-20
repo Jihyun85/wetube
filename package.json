@@ -4,7 +4,7 @@
   "description": "Cloning Youtube with VanillaJS and NodeJS",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --legacy-watch --exec babel-node index.js --delay 2"
+    "start": "nodemon --legacy-watch --exec babel-node init.js --delay 2"
   },
   "author": "Jihyun",
   "license": "ISC",
