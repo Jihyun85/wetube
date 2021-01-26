@@ -13,7 +13,7 @@ import routes from "./routes";
 const app = express();
 
 app.use(helmet()); // 안전을 위해 미들웨어 중 가장 위에 둔다
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
   res.setHeader(
     "Content-Security-Policy",
     "script-src 'self' https://archive.org"
