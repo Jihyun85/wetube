@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import "./models/Video";
 import "./models/comment";
+
 dotenv.config();
 
 mongoose.connect(process.env.MONGO_URL, {
