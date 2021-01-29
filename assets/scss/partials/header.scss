@@ -1,0 +1,67 @@
+header.header {
+  width: 100%;
+  background-color: $red;
+  .header__wrapper {
+    max-width: 1000px;
+    padding: 5px 0;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    .header__column {
+      align-content: center;
+      a {
+        text-decoration: none;
+        color: white;
+      }
+      &:first-child {
+        a {
+          display: flex;
+          align-items: center;
+          i {
+            color: white;
+            font-size: 28px;
+            margin-right: 10px;
+          }
+          h1 {
+            color: white;
+            font-size: 20px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 2px;
+          }
+        }
+      }
+      &:nth-child(2) {
+        form {
+          width: 100%;
+          input {
+            width: 100%;
+            min-width: 200px;
+            height: 26px;
+            border: none;
+            border-radius: 20px;
+            padding: 5px 20px;
+            &::placeholder {
+              color: rgba(0, 0, 0, 0.5);
+            }
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+      }
+      &:last-child {
+        ul {
+          display: flex;
+          justify-content: flex-end;
+          li {
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-left: 20px;
+          }
+        }
+      }
+    }
+  }
+}
