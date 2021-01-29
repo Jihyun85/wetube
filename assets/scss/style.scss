@@ -1,5 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+
 @import "config/_variables.scss";
 @import "config/reset.scss";
 @import "partials/header.scss";
+@import "partials/footer.scss";
+@import "partials/form.scss";
+@import "partials/socialLogin.scss";
 @import "main.scss";
 @import "pages/home.scss";
