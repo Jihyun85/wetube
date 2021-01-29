@@ -1,0 +1,47 @@
+.video-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .video {
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    .video__player {
+      video {
+        width: 80vw;
+        max-width: 850px;
+        height: auto;
+        outline: none;
+      }
+    }
+
+    .video__info {
+      a {
+        display: inline-block;
+        text-decoration: none;
+        background-color: $blue;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 5px;
+        margin-top: 20px;
+      }
+      .video__title {
+        font-size: 28px;
+        font-weight: 300;
+        margin-top: 20px;
+      }
+      .video__description {
+        font-size: 16px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    }
+    .video__comments {
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+      font-size: 16px;
+    }
+  }
+}
