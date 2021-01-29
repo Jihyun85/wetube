@@ -7,6 +7,7 @@ const ENTRY_FILE = path.resolve(__dirname, "assets", "js", "main.js");
 const OUTPUT_DIR = path.join(__dirname, "static");
 
 const config = {
+  devtool: "cheap-module-source-map",
   entry: ENTRY_FILE,
   mode: MODE,
   module: {
