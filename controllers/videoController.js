@@ -21,7 +21,6 @@ export const search = async (req, res) => {
     videos = await Video.find({
       title: { $regex: searchingBy, $options: "i" },
     });
-    console.log(videos);
   } catch (error) {
     console.log(error);
   }

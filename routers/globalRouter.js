@@ -1,14 +1,18 @@
 import express from "express";
+import passport from "passport";
 // 내가 한 것이 아니라 아래 home, search 등등을 입력했더니 저장 후 알아서 import가 생겼음!
 import {
   getJoin,
   getLogin,
+  getMe,
+  githubLogin,
   logout,
+  postGithubLogin,
   postJoin,
   postLogin,
 } from "../controllers/userController";
 import { home, search } from "../controllers/videoController";
-import { onlyPublic } from "../middlewares";
+import { onlyPrivate, onlyPublic } from "../middlewares";
 import routes from "../routes";
 
 const globalRouter = express.Router();
@@ -21,6 +25,15 @@ globalRouter.post(routes.login, onlyPublic, postLogin);
 
 globalRouter.get(routes.home, home);
 globalRouter.get(routes.search, search);
-globalRouter.get(routes.logout, logout);
+globalRouter.get(routes.logout, onlyPrivate, logout);
+
+globalRouter.get(routes.github, githubLogin);
+globalRouter.get(
+  routes.githubCallback,
+  passport.authenticate("github", { failureRedirect: routes.login }),
+  postGithubLogin
+);
+
+globalRouter.get(routes.me, getMe);
 
 export default globalRouter;

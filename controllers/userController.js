@@ -39,12 +39,47 @@ export const postLogin = passport.authenticate("local", {
   successRedirect: routes.home,
 });
 
-export const logout = (req, res) => {
-  // To Do: Process Log Out
+export const githubLogin = passport.authenticate("github");
+
+export const githubLoginCallback = async (_, __, profile, cb) => {
+  const {
+    _json: { id, avatar_url: avatarUrl, name, email },
+  } = profile;
+  try {
+    const user = await User.findOne({ email });
+    if (user) {
+      user.githubId = id;
+      user.save();
+      return cb(null, user);
+    } else {
+      const newUser = await User.create({
+        email,
+        name,
+        githubId: id,
+        avatarUrl,
+      });
+      return cb(null, newUser);
+    }
+  } catch (error) {
+    return cb(error);
+  }
+};
+
+export const postGithubLogin = (req, res) => {
   res.redirect(routes.home);
 };
 
+export const logout = (req, res) => {
+  req.logout();
+  res.redirect(routes.home);
+};
+
+export const getMe = (req, res) => {
+  res.render("userDetail", { pageTitle: "User Detail", user: req.user });
+};
+
 // users
-export const userDetail = (req, res) => res.render("userDetail");
+export const userDetail = (req, res) =>
+  res.render("userDetail", { pageTitle: "User Detail" });
 export const editProfile = (req, res) => res.render("editProfile");
 export const changePassword = (req, res) => res.render("changePassword");

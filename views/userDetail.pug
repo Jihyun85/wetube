@@ -1,5 +1,11 @@
 extends layouts/main.pug
 
 block content
-  p user detail page
+  .user-profile
+    .user-profile-header
+      img.avatar(src=user.avatarUrl)
+      h4.profile__username=user.name
+      
+
+
   a(href=routes.editProfile(user.id)) Edit Profile
