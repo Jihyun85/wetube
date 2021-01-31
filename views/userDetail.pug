@@ -5,7 +5,9 @@ block content
     .user-profile-header
       img.avatar(src=user.avatarUrl)
       h4.profile__username=user.name
-      
 
-
-  a(href=routes.editProfile(user.id)) Edit Profile
+    if user.id === loggedUser.id
+      .user-profile__btns
+        a.form-container__link(href=`users${routes.editProfile}`) Edit Profile
+        a.form-container__link(href=`users${routes.changePassword}`) Change Password
+  

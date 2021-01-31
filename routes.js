@@ -9,7 +9,7 @@ const ME = "/me";
 // Users
 const USERS = "/users";
 const USER_DETAIL = "/:id";
-const EDIT_PROFILE = "/:id/edit-profile";
+const EDIT_PROFILE = "/edit-profile";
 const CHANGE_PASSWORD = "/:id/change-password";
 
 // Videos
@@ -42,13 +42,7 @@ const routes = {
       return USER_DETAIL;
     }
   },
-  editProfile: (id) => {
-    if (id) {
-      return `/users/${id}/edit-profile`;
-    } else {
-      return EDIT_PROFILE;
-    }
-  },
+  editProfile: EDIT_PROFILE,
   changePassword: CHANGE_PASSWORD,
   videos: VIDEOS,
   upload: UPLOAD,
