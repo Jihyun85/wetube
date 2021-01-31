@@ -2,11 +2,13 @@ import express from "express";
 import passport from "passport";
 // 내가 한 것이 아니라 아래 home, search 등등을 입력했더니 저장 후 알아서 import가 생겼음!
 import {
+  facebookLogin,
   getJoin,
   getLogin,
   getMe,
   githubLogin,
   logout,
+  postFacebookdLogin,
   postGithubLogin,
   postJoin,
   postLogin,
@@ -33,6 +35,9 @@ globalRouter.get(
   passport.authenticate("github", { failureRedirect: routes.login }),
   postGithubLogin
 );
+
+globalRouter.get(routes.facebook, facebookLogin);
+globalRouter.get(routes.facebookCallback, postFacebookdLogin);
 
 globalRouter.get(routes.me, getMe);
 
