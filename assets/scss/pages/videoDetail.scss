@@ -17,7 +17,7 @@
     }
 
     .video__info {
-      a {
+      .video__edit-btn {
         display: inline-block;
         text-decoration: none;
         background-color: $blue;
@@ -36,7 +36,11 @@
         margin-top: 10px;
         margin-bottom: 10px;
       }
+      .video__views {
+        margin-bottom: 10px;
+      }
     }
+
     .video__comments {
       margin-top: 50px;
       display: flex;
