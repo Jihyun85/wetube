@@ -39,6 +39,10 @@
       .video__views {
         margin-bottom: 10px;
       }
+      .video__author a {
+        text-decoration: none;
+        color: $blue;
+      }
     }
 
     .video__comments {
