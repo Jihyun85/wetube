@@ -1,21 +1,13 @@
 .video-container {
   width: 100%;
+  margin: 50px 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   .video {
-    margin: 50px;
+    width: 60%;
     display: flex;
     flex-direction: column;
-    .video__player {
-      video {
-        width: 80vw;
-        max-width: 850px;
-        height: auto;
-        outline: none;
-      }
-    }
-
     .video__info {
       .video__edit-btn {
         display: inline-block;
@@ -36,15 +28,14 @@
         margin-top: 10px;
         margin-bottom: 10px;
       }
-      .video__views {
-        margin-bottom: 10px;
+      .video__author {
+        margin-top: 10px;
       }
       .video__author a {
         text-decoration: none;
         color: $blue;
       }
     }
-
     .video__comments {
       margin-top: 50px;
       display: flex;
