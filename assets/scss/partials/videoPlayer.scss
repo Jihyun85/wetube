@@ -28,6 +28,7 @@
       padding-left: 10px;
       display: flex;
       align-items: center;
+
       span:first-child {
         margin-right: 10px;
       }
@@ -35,6 +36,33 @@
         margin-left: 10px;
       }
     }
+    .videoPlyaer__volume {
+      position: absolute;
+      transform: rotate(-90deg);
+      z-index: 10;
+      width: 80px;
+      top: -60px;
+      left: -25px;
+      opacity: 1;
+      padding: 0;
+      input {
+        background-color: rgba(0, 0, 0, 0.7);
+        &::-webkit-slider-runnable-track {
+          background-color: $grey;
+          height: 5px;
+        }
+        &::-webkit-slider-thumb {
+          all: unset;
+          background-color: $red;
+          height: 15px;
+          width: 15px;
+          border-radius: 50%;
+          position: relative;
+          top: -5px;
+        }
+      }
+    }
+
     .videoPlayer__columns:last-child {
       justify-self: end;
       padding-right: 10px;

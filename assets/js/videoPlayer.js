@@ -6,6 +6,17 @@ const volumeBtn = document.getElementById("jsVolumeBtn");
 const fullScreenBtn = document.getElementById("jsFullScreen");
 const currentTime = document.getElementById("currentTime");
 const totalTime = document.getElementById("totalTime");
+const volumeRange = document.getElementById("jsVolume");
+
+function changeVolumeicon(value) {
+  if (value >= 0.6) {
+    volumeBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+  } else if (value >= 0.3) {
+    volumeBtn.innerHTML = '<i class="fas fa-volume-down"></i>';
+  } else {
+    volumeBtn.innerHTML = '<i class="fas fa-volume-off"></i>';
+  }
+}
 
 function handlePlayClick() {
   if (videoPlayer.paused) {
@@ -19,12 +30,13 @@ function handlePlayClick() {
 
 function handleVolumeClick() {
   if (videoPlayer.muted) {
+    volumeRange.value = videoPlayer.volume;
     videoPlayer.muted = false;
-    volumeBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
   } else {
+    volumeRange.value = 0;
     videoPlayer.muted = true;
-    volumeBtn.innerHTML = '<i class="fas fa-volume-off"></i>';
   }
+  changeVolumeicon(volumeRange.value);
 }
 
 function exitFullScreen() {
@@ -85,11 +97,29 @@ function setTotalTime() {
   setInterval(getCurrentTime, 1000);
 }
 
+function handleEnded() {
+  videoPlayer.currentTime = 0;
+  videoPlayer.pause();
+  playBtn.innerHTML = '<i class="fas fa-play"></i>';
+}
+
+// handleDrag는 어디서 발생했는지 알아야 하기 떄문에 param이 필요
+function handleDrag(event) {
+  const {
+    target: { value },
+  } = event;
+  videoPlayer.volume = value;
+  changeVolumeicon(value);
+}
+
 function init() {
+  videoPlayer.volume = 0.5;
   playBtn.addEventListener("click", handlePlayClick);
   volumeBtn.addEventListener("click", handleVolumeClick);
   fullScreenBtn.addEventListener("click", goFullScreen);
   videoPlayer.addEventListener("loadedmetadata", setTotalTime);
+  videoPlayer.addEventListener("ended", handleEnded);
+  volumeRange.addEventListener("input", handleDrag);
 }
 
 if (videoContainer) {
