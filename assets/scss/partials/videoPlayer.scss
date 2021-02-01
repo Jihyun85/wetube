@@ -11,9 +11,10 @@
     }
   }
   .videoPlayer__controls {
+    box-sizing: border-box;
     width: 100%;
     position: absolute;
-    bottom: 5px;
+    bottom: 10px;
     opacity: 0;
     transition: opacity 0.4s linear;
     z-index: 9;
@@ -23,7 +24,7 @@
     color: white;
     font-size: 16px;
     .videoPlayer__columns:first-child {
-      margin-left: 10px;
+      padding-left: 10px;
       display: flex;
       align-items: center;
       span:first-child {
@@ -32,10 +33,10 @@
     }
     .videoPlayer__columns:last-child {
       justify-self: end;
+      padding-right: 10px;
     }
     .videoPlayer__columns:nth-child(2) {
       justify-self: center;
-      margin-right: 10px;
     }
     i {
       font-size: 22px;
