@@ -8,6 +8,13 @@ const currentTime = document.getElementById("currentTime");
 const totalTime = document.getElementById("totalTime");
 const volumeRange = document.getElementById("jsVolume");
 
+const registerView = () => {
+  const videoId = window.location.href.split("/videos/")[1];
+  fetch(`/api/${videoId}/view`, {
+    method: "POST",
+  });
+};
+
 function changeVolumeicon(value) {
   if (value >= 0.6) {
     volumeBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
@@ -101,6 +108,7 @@ function handleEnded() {
   videoPlayer.currentTime = 0;
   videoPlayer.pause();
   playBtn.innerHTML = '<i class="fas fa-play"></i>';
+  registerView();
 }
 
 // handleDrag는 어디서 발생했는지 알아야 하기 떄문에 param이 필요
