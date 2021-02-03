@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Cloning Youtube with VanillaJS and NodeJS",
   "main": "index.js",
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "scripts": {
     "dev:server": "nodemon --exec babel-node init.js --delay 2 ",
     "dev:assets": "WEBPACK_ENV=development webpack --watch",
@@ -13,7 +14,6 @@
   "dependencies": {
     "@babel/core": "^7.12.10",
     "@babel/node": "^7.12.10",
-    "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.12.11",
     "autoprefixer": "^9.8.6",
     "axios": "^0.21.1",
@@ -42,6 +42,8 @@
     "pug-server": "^0.1.1"
   },
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "babel-plugin-transform-regenerator": "^6.26.0",
     "eslint": "^7.18.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^7.2.0",
