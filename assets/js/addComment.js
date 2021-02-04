@@ -4,11 +4,13 @@ const addCommentForm = document.getElementById("jsAddComment");
 
 const sendComment = async (comment) => {
   const videoId = window.location.href.split("/videos/")[1];
-  const response = fetch(`/api/${videoId}/view`, {
+  const response = axios({
+    url: `/api/${videoId}/comment`,
     method: "POST",
-    data: { comment },
+    data: {
+      comment,
+    },
   });
-
   console.log(response);
 };
 
