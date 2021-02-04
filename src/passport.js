@@ -7,6 +7,7 @@ import {
 } from "./controllers/userController";
 import User from "./models/User";
 import routes from "./routes";
+import dotenv from "dotenv";
 
 passport.use(User.createStrategy());
 

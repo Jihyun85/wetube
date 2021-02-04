@@ -70,8 +70,6 @@ export const getEditVideo = async (req, res) => {
   } = req;
   try {
     const video = await Video.findById(id);
-    console.log(`video.creator: ${video.creator}`);
-    console.log(`req.user.id: ${req.user.id}`);
     if (video.creator != req.user.id) {
       throw Error();
     } else {
