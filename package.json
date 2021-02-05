@@ -12,7 +12,8 @@
     "copyAll": "cp -R src/static build && cp -R src/views build",
     "build": "npm run build:server && npm run build:assets && npm run copyAll",
     "prebuild": "rm -rf build",
-    "start": "PRODUCTION=true node build/init.js"
+    "start": "PRODUCTION=true node build/init.js",
+    "prestart": "npm run build"
   },
   "author": "Jihyun",
   "license": "ISC",
@@ -21,6 +22,7 @@
     "@babel/core": "^7.12.10",
     "@babel/node": "^7.12.13",
     "@babel/preset-env": "^7.12.11",
+    "@babel/plugin-transform-runtime": "^7.12.10",
     "autoprefixer": "^9.8.6",
     "aws-sdk": "^2.836.0",
     "axios": "^0.21.1",
@@ -52,7 +54,6 @@
     "pug-server": "^0.1.1"
   },
   "devDependencies": {
-    "@babel/plugin-transform-runtime": "^7.12.10",
     "babel-plugin-transform-regenerator": "^6.26.0",
     "eslint": "^7.18.0",
     "eslint-config-airbnb-base": "^14.2.1",
